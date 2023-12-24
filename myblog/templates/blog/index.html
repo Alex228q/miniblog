@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <menu>
+        <a href="/admin">Admin Panel</a>
+        <a href="/">Main Page</a>
+      </menu>
+      <h1>Новости</h1>
+      {% for post in post_list %}
+      <a href="{{ post.id }}"
+        ><div class="news-card">
+          <div>
+            <img src="{{ post.image.url }}" alt="Изображение новости" />
+          </div>
+          <div>
+            <h2 class="news-title">{{post.title}}</h2>
+            <p class="news-description">{{ post.description }}</p>
+          </div>
+        </div></a
+      >
+      {% endfor %}
+    </div>
+  </body>
+</html>
